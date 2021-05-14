@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 
 import FormInput from "../../../../components/form-input";
 import FormSelect from "../../../../components/form-select";
 import CustomButton from "../../../../components/custom-button";
+
+import { UserContext } from "../../../../providers/user/user.provider";
 
 import { PROVINCES } from "../../../../assets/provinces";
 
@@ -20,6 +22,8 @@ const UserForm = () => {
 
   const { name, email, phone, address, addressNumber } = userData;
 
+  const { submitUser } = useContext(UserContext);
+
   const handleChange = (event) => {
     const { value, name } = event.target;
     setUserData({ ...userData, [name]: value });
@@ -27,6 +31,7 @@ const UserForm = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    submitUser(userData);
     console.log("submit");
   };
 
