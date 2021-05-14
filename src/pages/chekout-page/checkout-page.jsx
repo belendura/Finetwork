@@ -4,6 +4,8 @@ import UserForm from "./components/user-form";
 import CheckoutItem from "./components/checkout-item";
 import ItemHeader from "../../components/item-header";
 
+import { PRODUCT } from "../../assets/product";
+
 import {
   Container,
   ItemContainer,
@@ -12,12 +14,13 @@ import {
 } from "./checkout-page.styles";
 
 const CheckoutPage = () => {
+  const { id, name, price } = PRODUCT;
   return (
     <Container>
       <ItemContainer>
         <Title>Product</Title>
         <ItemHeader items={["Id", "Name", "Price"]} />
-        <CheckoutItem />
+        <CheckoutItem id={id} name={name} price={price} />
       </ItemContainer>
       <FormContainer>
         <UserForm />

@@ -7,9 +7,10 @@ export const Container = styled.div`
   align-items: center;
   margin-bottom: 10px;
   text-align: center;
+  border-bottom: 1px solid grey;
 `;
 
 export const Title = styled.span`
-  font-weight: bold;
-  margin: 0 5px;
+  color: grey;
+  margin: 5px;
 `;

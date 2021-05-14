@@ -4,6 +4,7 @@ import { Route, Switch } from "react-router-dom";
 import { GlobalStyle } from "./global.styles";
 
 const CheckoutPage = React.lazy(() => import("./pages/chekout-page"));
+const SummaryPage = React.lazy(() => import("./pages/summary-page"));
 
 function App() {
   return (
@@ -12,7 +13,11 @@ function App() {
 
       <Switch>
         <Suspense fallback={<div>...Is Loading</div>}>
-          <Route exact path="/checkout" component={CheckoutPage} />
+          <Route
+            exact
+            path="/checkout"
+            render={() => (user ? <SummaryPage /> : <CheckoutPage />)}
+          />
         </Suspense>
       </Switch>
     </>

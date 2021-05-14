@@ -27,11 +27,11 @@ const UserForm = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    console.log("submit");
   };
 
   return (
     <Container>
-      {console.log("userData", userData)}
       <Title>Insert your data</Title>
       <Form onSubmit={handleSubmit}>
         <FormInput
@@ -49,6 +49,7 @@ const UserForm = () => {
           type="email"
           name="email"
           value={email}
+          pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$"
           label="Email"
           required
         />
