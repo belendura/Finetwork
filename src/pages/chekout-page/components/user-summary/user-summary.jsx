@@ -13,7 +13,6 @@ import {
 const UserSummary = ({ submittedUser, setEditMode }) => {
   const { name, email, phone, address, addressNumber, province } =
     submittedUser;
-
   return (
     <Container>
       <Title>User Summary</Title>

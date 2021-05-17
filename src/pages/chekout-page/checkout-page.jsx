@@ -38,12 +38,15 @@ const CheckoutPage = () => {
       </ProductContainer>
       <FormContainer>
         {submittedUser && !editMode ? (
-          <UserSummary submitUser={submittedUser} setEditMode={setEditMode} />
+          <UserSummary
+            submittedUser={submittedUser}
+            setEditMode={setEditMode}
+          />
         ) : (
           <UserForm
             userData={userData}
             setUserData={setUserData}
-            setSubmitUser={setSubmittedUser}
+            setSubmittedUser={setSubmittedUser}
             setEditMode={setEditMode}
             initialValues={initialValues}
           />

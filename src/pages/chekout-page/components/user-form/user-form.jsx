@@ -35,7 +35,7 @@ const UserForm = ({
   return (
     <Container>
       <Title>Insert your data</Title>
-      <Form onSubmit={handleSubmit}>
+      <Form data-testid="user-form" onSubmit={handleSubmit}>
         <FormInput
           handleChange={handleChange}
           type="text"

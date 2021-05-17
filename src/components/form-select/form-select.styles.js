@@ -28,7 +28,6 @@ export const Option = styled.option``;
 export const Label = styled.label`
   color: ${mainColor};
   font-size: 12px;
-  font-weight: normal;
   position: absolute;
   pointer-events: none;
   left: 5px;
