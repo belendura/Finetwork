@@ -14,7 +14,7 @@ export const Container = styled.div`
   }
 `;
 
-export const ItemContainer = styled.div`
+export const ProductContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;

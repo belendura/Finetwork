@@ -15,7 +15,6 @@ export const Container = styled.div`
 
 export const Label = styled.label`
   color: ${subColor};
-  font-weight: normal;
   position: absolute;
   pointer-events: none;
   left: 5px;
@@ -26,7 +25,6 @@ export const Label = styled.label`
 `;
 
 export const Input = styled.input`
-  background: none;
   background-color: white;
   color: ${subColor};
   padding: 10px 10px 10px 5px;

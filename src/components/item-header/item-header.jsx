@@ -3,13 +3,13 @@ import React from "react";
 import { Container, Title } from "./item-header.styles";
 
 const ItemHeader = ({ items }) => {
-  return (
+  return items ? (
     <Container>
-      {items
-        ? items.map((item, index) => <Title key={index}>{item}</Title>)
-        : null}
+      {items.map((item, index) => (
+        <Title key={index}>{item}</Title>
+      ))}
     </Container>
-  );
+  ) : null;
 };
 
 export default ItemHeader;

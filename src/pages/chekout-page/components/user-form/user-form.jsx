@@ -1,38 +1,35 @@
-import React, { useState, useContext } from "react";
+import React from "react";
 
 import FormInput from "../../../../components/form-input";
 import FormSelect from "../../../../components/form-select";
 import CustomButton from "../../../../components/custom-button";
 
-import { UserContext } from "../../../../providers/user/user.provider";
-
 import { PROVINCES } from "../../../../assets/provinces";
 
 import { Container, Title, Form } from "./user-form.styles";
 
-const UserForm = () => {
-  const [userData, setUserData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    address: "",
-    addressNumber: "",
-    province: "",
-  });
-
-  const { name, email, phone, address, addressNumber } = userData;
-
-  const { submitUser } = useContext(UserContext);
+const UserForm = ({
+  userData,
+  setUserData,
+  setSubmittedUser,
+  setEditMode,
+  initialValues,
+}) => {
+  const { name, email, phone, address, addressNumber, province } = userData;
 
   const handleChange = (event) => {
     const { value, name } = event.target;
-    setUserData({ ...userData, [name]: value });
+    setUserData((prevState) => ({ ...prevState, [name]: value }));
   };
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
-    submitUser(userData);
-    console.log("submit");
+    setSubmittedUser(userData);
+    setEditMode(false);
+  };
+
+  const handleReset = () => {
+    setUserData(initialValues);
   };
 
   return (
@@ -42,6 +39,7 @@ const UserForm = () => {
         <FormInput
           handleChange={handleChange}
           type="text"
+          id="name"
           name="name"
           value={name}
           label="Name (2 to 20 characters)"
@@ -52,6 +50,7 @@ const UserForm = () => {
         <FormInput
           handleChange={handleChange}
           type="email"
+          id="email"
           name="email"
           value={email}
           pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$"
@@ -61,6 +60,7 @@ const UserForm = () => {
         <FormInput
           handleChange={handleChange}
           type="tel"
+          id="phone"
           name="phone"
           value={phone}
           pattern="[0-9]{9}"
@@ -72,6 +72,7 @@ const UserForm = () => {
         <FormInput
           handleChange={handleChange}
           type="text"
+          id="address"
           name="address"
           value={address}
           label="Address"
@@ -80,6 +81,7 @@ const UserForm = () => {
         <FormInput
           handleChange={handleChange}
           type="number"
+          id="addressNumber"
           name="addressNumber"
           value={addressNumber}
           label="Address Number"
@@ -89,11 +91,16 @@ const UserForm = () => {
         <FormSelect
           items={PROVINCES}
           handleChange={handleChange}
+          id="province"
           name="province"
+          value={province}
           label="Province"
           required
         />
         <CustomButton type="submit">Submit</CustomButton>
+        <CustomButton type="button" onClick={handleReset}>
+          Reset
+        </CustomButton>
       </Form>
     </Container>
   );

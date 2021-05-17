@@ -1,16 +1,16 @@
 import React from "react";
 import { Container, Select, Option, Label } from "./form-select.styles.js";
 
-const FormSelect = ({ items, handleChange, label, value, ...otherProps }) => (
+const FormSelect = ({ items, handleChange, id, label, ...otherProps }) => (
   <Container>
-    <Select onChange={handleChange} {...otherProps}>
+    <Select onChange={handleChange} id={id} {...otherProps}>
       {items.map((item, index) => (
         <Option key={index} value={item}>
           {item}
         </Option>
       ))}
     </Select>
-    {label ? <Label value={value}>{label}</Label> : null}
+    {label ? <Label htmlFor={id}>{label}</Label> : null}
   </Container>
 );
 

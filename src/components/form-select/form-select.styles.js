@@ -8,7 +8,6 @@ export const Container = styled.div`
 `;
 
 export const Select = styled.select`
-  background: none;
   background-color: white;
   color: ${subColor};
   padding: 10px 10px 10px 5px;
